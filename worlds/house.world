@@ -48,13 +48,24 @@
         <view_controller>orbit</view_controller>
       </camera>
     </gui>
-        <model name="my_mesh">
+        <model name="white_dining_table">
       <pose>0 -5 0  0 0 0</pose>
       <static>true</static>
       <link name="body">
         <visual name="visual">
           <geometry>
-            <mesh><uri>file:///home/bkh/catkin_ws/src/namlonx/world/Table.dae</uri></mesh>
+            <mesh><uri>file:///home/bkh/catkin_ws/src/namlonx/worlds/Table.dae</uri></mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+            <model name="black_chair">
+      <pose>0 -7 0  3.14 0 0</pose>
+      <static>true</static>
+      <link name="body">
+        <visual name="visual">
+          <geometry>
+            <mesh><uri>file:///home/bkh/catkin_ws/src/namlonx/worlds/black_chair.dae</uri></mesh>
           </geometry>
         </visual>
       </link>

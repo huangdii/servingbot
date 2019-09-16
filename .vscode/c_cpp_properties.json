@@ -1,0 +1,56 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/bkh/catkin_ws/devel/include/**",
+                "/opt/ros/melodic/include/**",
+                "/home/bkh/catkin_ws/src/navigation/amcl/include/**",
+                "/home/bkh/catkin_ws/src/navigation/base_local_planner/include/**",
+                "/home/bkh/catkin_ws/src/navigation/carrot_planner/include/**",
+                "/home/bkh/catkin_ws/src/navigation/clear_costmap_recovery/include/**",
+                "/home/bkh/catkin_ws/src/navigation/costmap_2d/include/**",
+                "/home/bkh/catkin_ws/src/navigation/dwa_local_planner/include/**",
+                "/home/bkh/catkin_ws/src/navigation/global_planner/include/**",
+                "/home/bkh/catkin_ws/src/kobuki/kobuki_auto_docking/include/**",
+                "/home/bkh/catkin_ws/src/kobuki/kobuki_bumper2pc/include/**",
+                "/home/bkh/catkin_ws/src/kobuki/kobuki_controller_tutorial/include/**",
+                "/home/bkh/catkin_ws/src/kobuki/kobuki_keyop/include/**",
+                "/home/bkh/catkin_ws/src/kobuki/kobuki_node/include/**",
+                "/home/bkh/catkin_ws/src/kobuki/kobuki_random_walker/include/**",
+                "/home/bkh/catkin_ws/src/kobuki/kobuki_safety_controller/include/**",
+                "/home/bkh/catkin_ws/src/navigation/map_server/include/**",
+                "/home/bkh/catkin_ws/src/navigation/move_base/include/**",
+                "/home/bkh/catkin_ws/src/navigation/move_slow_and_clear/include/**",
+                "/home/bkh/catkin_ws/src/navigation/nav_core/include/**",
+                "/home/bkh/catkin_ws/src/navigation/navfn/include/**",
+                "/home/bkh/catkin_ws/src/openslam_gmapping/include/**",
+                "/home/bkh/catkin_ws/src/navigation/rotate_recovery/include/**",
+                "/home/bkh/catkin_ws/src/geometry2/tf2/include/**",
+                "/home/bkh/catkin_ws/src/geometry2/tf2_bullet/include/**",
+                "/home/bkh/catkin_ws/src/geometry2/tf2_eigen/include/**",
+                "/home/bkh/catkin_ws/src/geometry2/tf2_geometry_msgs/include/**",
+                "/home/bkh/catkin_ws/src/geometry2/tf2_kdl/include/**",
+                "/home/bkh/catkin_ws/src/geometry2/tf2_msgs/include/**",
+                "/home/bkh/catkin_ws/src/geometry2/tf2_ros/include/**",
+                "/home/bkh/catkin_ws/src/geometry2/tf2_sensor_msgs/include/**",
+                "/home/bkh/catkin_ws/src/turtlebot3_simulations/turtlebot3_fake/include/**",
+                "/home/bkh/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/**",
+                "/home/bkh/catkin_ws/src/turtlebot3/turtlebot3_slam/include/**",
+                "/home/bkh/catkin_ws/src/turtlebot_apps/turtlebot_actions/include/**",
+                "/home/bkh/catkin_ws/src/navigation/voxel_grid/include/**",
+                "/home/bkh/catkin_ws/src/joystick_drivers/wiimote/include/**",
+                "/usr/include/**"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

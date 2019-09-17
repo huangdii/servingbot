@@ -59,17 +59,6 @@
         </visual>
       </link>
     </model>
-            <model name="black_chair">
-      <pose>0 -7 0  3.14 0 0</pose>
-      <static>true</static>
-      <link name="body">
-        <visual name="visual">
-          <geometry>
-            <mesh><uri>file:///home/bkh/catkin_ws/src/namlonx/worlds/black_chair.dae</uri></mesh>
-          </geometry>
-        </visual>
-      </link>
-    </model>
 
   </world>
   

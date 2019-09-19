@@ -6,7 +6,7 @@ cors = CORS(app, resources={
   r"/*": {"origin": "*"},
 })
 
-db = [{"content:asdf"},{"content:asdf2"},{"content:asdf3"}]
+db = [{"content":"asdf"},{"content":"asdf2"},{"content":"asdf3"}]
 
 
 @app.route("/api/slideContent/<slideNo>", methods=["GET"])
@@ -16,5 +16,5 @@ def getSlideContent(slideNo):
 
 
 if __name__ == '__main__':
-    app.run(host='bkhLaptop',port=5000)
+    app.run(host='namlonx',port=5000)
     # app.run(host='localhost',port=5000)

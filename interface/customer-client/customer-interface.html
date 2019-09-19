@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Using the XMLHttpRequest Object</h2>
+
+<div id="demo">
+<button type="button" onclick="loadXMLDoc()">Change Content</button>
+</div>
+
+<script>
+    function requestContent(contentNumber, id) {
+        var xmlhttp = new XMLHttpRequest();
+        var url = "http://localhost:5000/api/slideContent/";
+        var content = url + contentNumber
+        xmlhttp.onreadystatechange = function () {
+            console.log("rest success")
+            var myText = this.responseText;
+            var out = "<p>";
+            out += myText;
+            out += "</p>"
+            document.getElementById(id).innerHTML = out;
+        };
+        xmlhttp.open("GET", content, true);
+        xmlhttp.send();
+    }
+</script>
+
+</body>
+</html>

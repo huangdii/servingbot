@@ -2,29 +2,28 @@
 <html>
 <body>
 
-<h2>1 번 테이블 손님인터페이스</h2>
+<h2>사장님 인터페이스</h2>
 
-<button type="button" onclick="requestContent(1)">주문하기</button>
-<button type="button" onclick="resetOrder()">리셋</button>
+<button type="button" onclick="servingStart(1)">서빙시작하기</button>
+<button type="button" onclick="resetServingStatus()">리셋</button>
 <div id="statustext">
 </div>
 
 <script>
-    function requestContent(foodNum) {
+    function servingStart(tableNo) {
         var xmlhttp = new XMLHttpRequest();
-        var url = "http://namlonx:5000/api/order/food/" + foodNum;
+        var url = "http://namlonx:5000/api/serving/start/" + tableNo;
         var content = url
         xmlhttp.onreadystatechange = function () {
-            console.log("order success")
             document.getElementById("statustext").innerHTML = "<p>"+this.responseText+"</p>";
         };
         xmlhttp.open("GET", content, true);
         xmlhttp.send();
     }
 
-    function resetOrder(){
+    function resetServingStatus(){
         var xmlhttp = new XMLHttpRequest();
-        var url = "http://namlonx:5000/api/reset/order/";
+        var url = "http://namlonx:5000/api/reset/serving/";
         xmlhttp.onreadystatechange = function(){
             console.log("reset success");
             document.getElementById("statustext").innerHTML = "<p>"+this.responseText+"</p>"

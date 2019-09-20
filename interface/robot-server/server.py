@@ -27,6 +27,10 @@ def resetOrder():
   ordered = False
   return "reset 되었습니다"
 
+@app.route("/api/received/", methods=["GET"])
+def orderReceived():
+  return "음식 서빙이 끝났습니다 식당으로 돌아갑니다 "
+
 @app.route("/api/serving/start/<tableNo>",methods=["GET"])
 def servingStart(tableNo):
   global serving

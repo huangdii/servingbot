@@ -6,6 +6,7 @@
 
 <button type="button" onclick="requestContent(1)">주문하기</button>
 <button type="button" onclick="resetOrder()">리셋</button>
+<button type="button" onclick="orderReceived()">음식받음</button>
 <div id="statustext">
 </div>
 
@@ -16,6 +17,18 @@
         var content = url
         xmlhttp.onreadystatechange = function () {
             console.log("order success")
+            document.getElementById("statustext").innerHTML = "<p>"+this.responseText+"</p>";
+        };
+        xmlhttp.open("GET", content, true);
+        xmlhttp.send();
+    }
+
+    function orderReceived() {
+        var xmlhttp = new XMLHttpRequest();
+        var url = "http://namlonx:5000/api/received/";
+        var content = url
+        xmlhttp.onreadystatechange = function () {
+            console.log("received")
             document.getElementById("statustext").innerHTML = "<p>"+this.responseText+"</p>";
         };
         xmlhttp.open("GET", content, true);

@@ -4,13 +4,14 @@
 
 <h2>사장님 인터페이스</h2>
 
-<button type="button" onclick="servingStart(1)">서빙시작하기</button>
 <button type="button" onclick="resetServingStatus()">리셋</button>
-<div id="statustext">
-</div>
-
+<input type="text" name="tableNo" id="tableNo" placeholder="테이블 번호를 입력하세요">
+<button type="button" onclick="servingStart()">서빙시작하기</button>
+<div id="statustext"></div>
 <script>
-    function servingStart(tableNo) {
+    function servingStart() {
+        var tableNo = document.getElementById("tableNo").value;
+        console.log(tableNo)
         var xmlhttp = new XMLHttpRequest();
         var url = "http://namlonx:5000/api/serving/start/" + tableNo;
         var content = url
@@ -19,6 +20,7 @@
         };
         xmlhttp.open("GET", content, true);
         xmlhttp.send();
+        document.getElementById("tableNo").value = null;
     }
 
     function resetServingStatus(){

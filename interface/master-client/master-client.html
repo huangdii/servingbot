@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>사장님 인터페이스</h2>
+
+<button type="button" onclick="resetServingStatus()">리셋</button>
+<input type="text" name="tableNo" id="tableNo" placeholder="테이블 번호를 입력하세요">
+<button type="button" onclick="servingStart()">서빙시작하기</button>
+<div id="statustext"></div>
+<script>
+    function servingStart() {
+        var tableNo = document.getElementById("tableNo").value;
+        console.log(tableNo)
+        var xmlhttp = new XMLHttpRequest();
+        var url = "http://namlonx:5000/api/serving/start/" + tableNo;
+        var content = url
+        xmlhttp.onreadystatechange = function () {
+            document.getElementById("statustext").innerHTML = "<p>"+this.responseText+"</p>";
+        };
+        xmlhttp.open("GET", content, true);
+        xmlhttp.send();
+        document.getElementById("tableNo").value = null;
+    }
+
+    function resetServingStatus(){
+        var xmlhttp = new XMLHttpRequest();
+        var url = "http://namlonx:5000/api/reset/serving/";
+        xmlhttp.onreadystatechange = function(){
+            console.log("reset success");
+            document.getElementById("statustext").innerHTML = "<p>"+this.responseText+"</p>"
+        };
+        xmlhttp.open("GET",url,true);
+        xmlhttp.send();
+    }
+
+</script>
+
+</body>
+</html>

@@ -15,3 +15,8 @@ roslaunch servebot rrbot_world.launch
 roslaunch servebot rrbot_rviz.launch   
 ```
 ![image](pictures/gazebo_rviz.png)
+
+# 현재 Robot Camera streaming record하기
+```bash
+python ~/catkin_ws/src/servebot/script/CamRecord.py
+```

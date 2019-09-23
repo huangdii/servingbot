@@ -16,7 +16,8 @@ roslaunch servebot rrbot_rviz.launch
 ```
 ![image](pictures/gazebo_rviz.png)
 
-# 현재 Robot Camera streaming record하기
 ```bash
-python ~/catkin_ws/src/servebot/script/CamRecord.py
+# 현재 Robot Camera streaming record하기
+# script 실행시킨 디렉토리 위치에 'output.avi'로 저장 됨
+rosrun servebot CamRecord.py
 ```

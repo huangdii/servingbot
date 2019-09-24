@@ -11,12 +11,12 @@
     <arg name="world_name" value="$(find servebot)/worlds/change_class_world.world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
-    <arg name="gui" value="true"/>
+    <arg name="gui" value="false"/>
     <arg name="headless" value="false"/>
     <arg name="debug" value="false"/>
   </include>
-  <include file="$(find servebot)/launch/nav.launch"/>  
-
+  <include file="$(find servebot)/launch/nav.launch"/>
+  
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find servebot)/urdf/turtlebot3_$(arg model).urdf.xacro" />
 
   <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />

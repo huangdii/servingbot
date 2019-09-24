@@ -69,7 +69,7 @@ gedit ~/catkin_ws/src/darknet_ros/darknet_ros/config/ros.yaml
 gedit ~/catkin_ws/src/darknet_ros/darknet
 ```
 
-![image](pictures/darknet Makefile revision.png)  
+![image](pictures/darknet_Makefile_revision.png)  
 
 ```bash
 cd ~/catkin_make && catkin_make

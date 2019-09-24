@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
-from .goal_api import *
+from .actionclient import movebaseclient
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 import rospy
 import actionlib
@@ -51,6 +51,13 @@ def servingStart(tableNo):
   global serving
   if not serving:
     serving = True
+    res = table_db[tableNo]
+    
+    x = float(res["x"])
+    y = float(res["y"])
+
+    movebaseclient(x,y)
+
     return tableNo + " 번 테이블로의 서빙이 시작되었습니다"
   elif serving:
     return "지금 로봇은 서빙중에 있습니다."
@@ -61,35 +68,6 @@ def resetServing():
   serving = False
   return "reset 되었습니다"
 
-def movebase_client():
-
-  client = actionlib.SimpleActionClient('move_base',MoveBaseAction)
-  client.wait_for_server()
-
-  goal = MoveBaseGoal()
-  goal.target_pose.header.frame_id = "map"
-  goal.target_pose.header.stamp = rospy.Time.now()
-  goal.target_pose.pose.position.x = -3.0
-  goal.target_pose.pose.orientation.w = 0.7
-
-  client.send_goal(goal)
-  wait = client.wait_for_result()
-  
-  if not wait:
-      rospy.logerr("Action server not available!")
-      rospy.signal_shutdown("Action server not available!")
-  else:
-  # Result of executing the action
-      return client.get_result()   
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0',port=5000)
-  try:
-    # Initializes a rospy node to let the SimpleActionClient publish and subscribe
-    rospy.init_node('movebase_client_py')
-    result = movebase_client()
-    if result:
-        rospy.loginfo("Goal execution done!")
-  except rospy.ROSInterruptException:
-      rospy.loginfo("Navigation test finished.")
-  # app.run(host='localhost',port=5000)

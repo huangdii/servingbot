@@ -20,12 +20,15 @@ roslaunch servebot rrbot_rviz.launch
 ```bash
 #usb 연결 확인
 lsusb
+
 # 시스템 카메라 인식 확인
 ls /dev | grep video*
+
 # ros kinetic usb cam 패키지 설치
 sudo apt install ros-kinetic-usb-cam
 sudo apt-get install ros-kinetic-camera-info-manager
 cd ~/catkin_ws && catkin_make
+
 #  usb-cam node test launch file, usb 카메라 스트리밍 확인
 # video device를 /dev/video1로 변경
 vi /opt/ros/kinetic/share/usb_cam/launch/usb_cam-test.launch

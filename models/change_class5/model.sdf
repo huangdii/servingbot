@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
-  <model name='change_class4'>
+  <model name='change_class5'>
     <pose frame=''>0.163402 0.008075 0 0 -0 0</pose>
     <link name='Wall_10'>
       <collision name='Wall_10_Collision'>

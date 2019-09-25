@@ -13,7 +13,7 @@
 <script>
     function requestContent(foodNum) {
         var xmlhttp = new XMLHttpRequest();
-        var url = "http://namlonx:5000/api/order/food/" + foodNum;
+        var url = "http://localhost:5000/api/order/food/" + foodNum;
         var content = url
         xmlhttp.onreadystatechange = function () {
             console.log("order success")
@@ -25,7 +25,7 @@
 
     function orderReceived() {
         var xmlhttp = new XMLHttpRequest();
-        var url = "http://namlonx:5000/api/received/";
+        var url = "http://localost:5000/api/received/";
         var content = url
         xmlhttp.onreadystatechange = function () {
             console.log("received")
@@ -37,7 +37,7 @@
 
     function resetOrder(){
         var xmlhttp = new XMLHttpRequest();
-        var url = "http://namlonx:5000/api/reset/order/";
+        var url = "http://localhost:5000/api/reset/order/";
         xmlhttp.onreadystatechange = function(){
             console.log("reset success");
             document.getElementById("statustext").innerHTML = "<p>"+this.responseText+"</p>"

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
-from .actionclient import movebaseclient
+from actionclient import movebaseclient
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 import rospy
 import actionlib
@@ -20,18 +20,25 @@ serving = False
 
 table_db = [
     {"x":"-3.0","y":"0.7"},
-    {"x":"-3.0","y":"2.0"},
-    {"x":"-3.0","y":"4.0"}
+    {"x":"-1.0","y":"0.7"},
+    {"x":"1.3","y":"0.7"}
 ]
 
 
 
 @app.route("/api/order/food/<foodNum>", methods=["GET"])
-def getSlideContent(foodNum):
+def orderFood(foodNum):
   global ordered
   if not ordered:
     res = db[int(foodNum)-1]
     ordered = True
+    startPoint = table_db[0]
+    x = float(startPoint['x'])
+    y = float(startPoint['y'])
+    movebaseclient(x,y)
+
+    rospy.loginfo("moving back to 식당 execution OK")
+
     return res['content']
   elif ordered:
     return "로봇이 바쁩니다"
@@ -51,13 +58,14 @@ def servingStart(tableNo):
   global serving
   if not serving:
     serving = True
-    res = table_db[tableNo]
+
+    res = table_db[int(tableNo)]
     
-    x = float(res["x"])
-    y = float(res["y"])
-
+    x = float(res['x'])
+    y = float(res['y'])
+    print("서빙하러 가는 테이블의 좌표(x,y):",x ,y)
     movebaseclient(x,y)
-
+    rospy.loginfo("goal execution OK")
     return tableNo + " 번 테이블로의 서빙이 시작되었습니다"
   elif serving:
     return "지금 로봇은 서빙중에 있습니다."
@@ -70,4 +78,9 @@ def resetServing():
 
 
 if __name__ == '__main__':
+  try:
+    rospy.init_node('movebase_client_py')
+    rospy.loginfo("move base init Successed")
+  except rospy.ROSInterruptException:
+    rospy.loginfo("test finished")
   app.run(host='0.0.0.0',port=5000)

@@ -76,4 +76,8 @@ cd ~/catkin_make && catkin_make
 
 # 테스트
 roslaunch servebot yolo_v3_tiny.launch
+```bash
+# 현재 Robot Camera streaming record하기
+# script 실행시킨 디렉토리 위치에 'output.avi'로 저장 됨
+rosrun servebot CamRecord.py
 ```

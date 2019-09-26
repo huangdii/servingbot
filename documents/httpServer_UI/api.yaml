@@ -1,0 +1,90 @@
+openapi: 3.0.0
+info:
+  title: 남론서버 API 명세 
+  description: 남론X서버1 로 들어가는 API 
+  version: 0.1.9
+servers:
+  - url: http://namlonxserver1:5000/api
+    description: 음식 주문 api 
+
+paths:
+  /order/food/{foodNums}:
+    parameters:
+      - in: path
+        name: foodNums
+        schema:
+          type: integer
+        required: true
+        description: 음식 번호
+    get:
+      summary: Returns 음식 종류, 확인 메세지
+      description: 확인.
+      responses:
+        '200':    # status code
+          description: 음식종류, 확인메세지
+          content:
+            application/json:
+              schema: 
+                type: string
+                items: 
+                  type: string
+  /reset/order/:
+    get:
+      summary: 주문된 음식이 뭔지 반환해줌, 음식 주문시 반환.
+      description: 손님이 주문을 하고 로봇이 식당주인에게 도착해서 음식 주문 접수를 해주면 손님에게 음식 접수가 됬음을 알려줌.
+      responses:
+        '200':    # status code
+          description: string 이 담겨있는 JSON 반환 
+          content:
+            application/json:
+              schema: 
+                type: string  
+                items: 
+                  type: string          
+  /received/:
+    get:
+      summary: 수령확인 시그널을 반환
+      description: 음식 수령 확인 확인 req 
+      responses:
+        '200':    # status code
+          description: 음식 수령확인 메세지 반혼 
+          content:
+            application/json:
+              schema: 
+                type: string
+                items: 
+                  type: string            
+
+  /serving/start/{tableNo}:
+    parameters:
+      - in: path
+        name: tableNo
+        schema:
+          type: integer
+        required: true
+        description: 테이블번호
+    get:
+      summary: Returns 서빙 시작 시그널.
+      description: 서빙 
+      responses:
+        '200':    # status code
+          description: 서빙 시작 메세지
+          content:
+            application/json:
+              schema: 
+                type: string
+                items: 
+                  type: string
+  /reset/serving/:
+    get:
+      summary: 서빙 flag 를 리셋.
+      description: 서빙 flag 를 리셋해주고 리셋 됬다고 클라이언트에게 리셋확인 메세지 반환
+      responses:
+        '200':    # status code
+          description: 리셋 확인 메세지
+          content:
+            application/json:
+              schema: 
+                type: string
+                items: 
+                  type: string

@@ -14,7 +14,7 @@
   <!-- Start usb_cam_node -->
   <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
     <remap from="/usb_cam/image_raw" to="/camera/image_raw" />
-    <param name="video_device" value="/dev/video1" />
+    <param name="video_device" value="/dev/video0" />
     <param name="image_width" value="640" />
     <param name="image_height" value="480" />
     <param name="pixel_format" value="yuyv" />

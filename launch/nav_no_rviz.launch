@@ -2,7 +2,7 @@
   <!-- Arguments -->
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
   <arg name="map_file" default="$(find servebot)/maps/map.yaml"/>
-  <arg name="open_rviz" default="true"/>
+  <arg name="open_rviz" default="false"/>
   <arg name="move_forward_only" default="false"/>
 
   <!-- Turtlebot3 -->
@@ -27,9 +27,4 @@
     <node pkg="rviz" type="rviz" name="rviz" required="true"
           args="-d $(find turtlebot3_navigation)/rviz/turtlebot3_navigation.rviz"/>
   </group>
-
-  <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0 0 3.14 0 0 0 base_link laser 100" />
-
 </launch>
-
-

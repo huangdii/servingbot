@@ -1,7 +1,9 @@
 # 각종 설치 
 
 
-## 그래픽드라이버 설피 
+## 그래픽드라이버 설치 및 커널 업데이트로 인한 고통 
+
+https://docs.nvidia.com/cuda/archive/10.0/cuda-installation-guide-linux/index.html
 
 openssl 1.1 을 받아야함 
 wget https://www.openssl.org/source/openssl-1.1.0l.tar.gz
@@ -33,8 +35,8 @@ su -c 'm-a prepare' 를 하라는 누군가의 말을 듣고 이걸따라해봄
 이것도 꽝이어서 gcc-9 를 받음 왜냐면 내가 커널 빌드할때 쓴게 gcc-9 이기 때문
 그래서 이걸로 바꾼뒤에 
 
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 60 \
-                         --slave /usr/bin/g++ g++ /usr/bin/g++-9 
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 \
+                         --slave /usr/bin/g++ g++ /usr/bin/g++-5 
 
 를 한뒤에 다시 엔비디아 드라이버를 깜
 

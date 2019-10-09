@@ -50,3 +50,16 @@ pre-install 없애던가 이름 바꾸던가해서 스크립트 충돌없애고 
 
 
 다 지우고 까니까 이제는 로그인이 안댐
+
+
+## hp book 으로 인한 고통 wifi 동글
+```bash
+# 이분이 다행히도 만들어준걸 클론하고
+git clone https://github.com/xtknight/mt7610u-linksys-ae6000-wifi-fixes
+ 
+ 
+# 설치해준다
+make
+
+sudo make install
+```

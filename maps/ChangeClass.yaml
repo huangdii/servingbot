@@ -1,0 +1,12 @@
+image: ./ChangeClass.pgm
+#image: ./mapp.pgm
+#image: ./map-final.pgm
+resolution: 0.010000
+# origin: [-3.840000, -3.075000, 0.000000]
+origin: [-4.380000, -3.160000, 0.000000]
+#origin: [−4.03000, −3.1700, 0.000000] 
+# origin: [-4.030000, -3.170000, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

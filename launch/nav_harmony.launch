@@ -28,7 +28,7 @@
           args="-d $(find turtlebot3_navigation)/rviz/turtlebot3_navigation.rviz"/>
   </group>
 
-  <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0 0 3.14 0 0 0 base_link laser 100" />
+  <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0 0 0 0 0 0 base_link laser 100" />
 
 </launch>
 

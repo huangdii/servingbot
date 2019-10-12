@@ -15,7 +15,7 @@
     <arg name="headless" value="false"/>
     <arg name="debug" value="false"/>
   </include>
-  <include file="$(find servebot)/launch/nav.launch"/>
+  <include file="$(find servebot)/launch/nav_gazebo.launch"/>
   
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find servebot)/urdf/turtlebot3_$(arg model).urdf.xacro" />
 

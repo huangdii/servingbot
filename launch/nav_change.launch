@@ -1,7 +1,7 @@
 <launch>
   <!-- Arguments -->
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
-  <arg name="map_file" default="$(find servebot)/maps/HarmonyClass.yaml"/>
+  <arg name="map_file" default="$(find servebot)/maps/ChangeClass.yaml"/>
   <arg name="open_rviz" default="true"/>
   <arg name="move_forward_only" default="false"/>
 
@@ -14,7 +14,7 @@
   <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
 
   <!-- AMCL -->
-  <include file="$(find servebot)/launch/amcl_HarmonyClass.launch"/>
+  <include file="$(find servebot)/launch/amcl_ChangeClass.launch"/>
 
   <!-- move_base -->
   <include file="$(find servebot)/launch/move_base.launch">

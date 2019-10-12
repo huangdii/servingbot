@@ -25,7 +25,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <arg name="camera_model"                    default="zedm" /> <!-- 'zed' or 'zedm' -->
     <arg name="publish_urdf"                    default="true" />
 
-      <!--<group ns="$(arg zed_namespace)">
+      <!-- <group ns="$(arg zed_namespace)">
        ZED Wrapper Node
         <include file="$(find zed_wrapper)/launch/zed_camera.launch">
             <arg name="svo_file"            value="$(arg svo_file)" />
@@ -33,7 +33,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <arg name="camera_model"        value="$(arg camera_model)" />
             <arg name="publish_urdf"        value="$(arg publish_urdf)" />
         </include>
-    </group>-->
+    </group> -->
 
     <!-- RTAB-map Node-->
     <include file="$(find rtabmap_ros)/launch/rtabmap.launch">

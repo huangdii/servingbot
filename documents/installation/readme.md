@@ -63,3 +63,7 @@ make
 
 sudo make install
 ```
+
+## jetson tx2 development guide
+
+[kernel, driver package etc](https://docs.nvidia.com/jetson/archives/l4t-archived/l4t-282/index.html)

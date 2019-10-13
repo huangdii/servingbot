@@ -11,6 +11,10 @@
 10월 - ROS 를 활용한 실제 로봇 주행 및 서빙루틴 실행 및 테스트 
 
 
+## 참고한 오픈 소스
+
+https://github.com/minht57/ROS_Basic_SLAM
+
 ```bash
 # house map 을 시작하기 
 roslaunch servebot house.launch

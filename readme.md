@@ -32,6 +32,13 @@ roslaunch servebot rrbot_rviz.launch
 ```
 ![image](pictures/gazebo_rviz.png)
 
+```bash
+제작한 맵 기반 localization & path planning & 움직임 제어 
+roslaunch servebot gazebo_change_world.launch 
+```
+>TODO - 위 커멘드에 대한 사진 첨부
+
+
 ## USB Camera 연결하여 Streaming 확인하기
 ```bash
 #usb 연결 확인

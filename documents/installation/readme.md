@@ -70,3 +70,7 @@ sudo make install
 
 ### wifi 통신문제...
 [결론, 걍 다른 장치 사라](https://askubuntu.com/questions/975464/mt7610u-unable-to-install-wifi-driver/975504#975504)
+
+[그래서 다른걸 사게되었습니다](http://www.compuzone.co.kr/product/product_detail.htm?ProductNo=397212&BigDivNo=12&MediumDivNo=1057&DivNo=2652)
+
+[driver firmware 설치](https://github.com/abperiasamy/rtl8812AU_8821AU_linux)

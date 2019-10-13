@@ -64,6 +64,9 @@ make
 sudo make install
 ```
 
-## jetson tx2 development guide
+## jetson tx2 development guide...
 
 [kernel, driver package etc](https://docs.nvidia.com/jetson/archives/l4t-archived/l4t-282/index.html)
+
+### wifi 통신문제...
+[결론, 걍 다른 장치 사라](https://askubuntu.com/questions/975464/mt7610u-unable-to-install-wifi-driver/975504#975504)

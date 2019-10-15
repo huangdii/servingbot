@@ -19,9 +19,9 @@ serving = False
 
 
 table_db = [
-    {"x":"-3.0","y":"0.7"},
-    {"x":"-1.0","y":"0.7"},
-    {"x":"1.3","y":"0.7"}
+    {"x":"-3.0","y":"0.9"},
+    {"x":"-1.0","y":"0.9"},
+    {"x":"1.3","y":"0.9"}
 ]
 
 
@@ -81,6 +81,6 @@ if __name__ == '__main__':
   try:
     rospy.init_node('movebase_client_py')
     rospy.loginfo("move base init Successed")
+    app.run(host='0.0.0.0',port=5000)
   except rospy.ROSInterruptException:
     rospy.loginfo("test finished")
-  app.run(host='0.0.0.0',port=5000)

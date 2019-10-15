@@ -52,3 +52,28 @@ pre-install 없애던가 이름 바꾸던가해서 스크립트 충돌없애고 
 
 
 다 지우고 까니까 이제는 로그인이 안댐
+
+
+## hp book 으로 인한 고통 wifi 동글
+```bash
+# 이분이 다행히도 만들어준걸 클론하고
+git clone https://github.com/xtknight/mt7610u-linksys-ae6000-wifi-fixes
+ 
+ 
+# 설치해준다
+make
+
+sudo make install
+```
+
+## jetson tx2 development guide...
+
+[kernel, driver package etc](https://docs.nvidia.com/jetson/archives/l4t-archived/l4t-282/index.html)
+
+### wifi 통신문제...
+처음에 IPTIME A1000mini를 샀으나 이게 막상 젯슨 보드 위에서는 작동하지않음, 드라이버도 없음 
+[결론, 걍 다른 장치 사라](https://askubuntu.com/questions/975464/mt7610u-unable-to-install-wifi-driver/975504#975504)
+
+[그래서 다른걸 사게되었습니다](http://www.compuzone.co.kr/product/product_detail.htm?ProductNo=397212&BigDivNo=12&MediumDivNo=1057&DivNo=2652)
+
+[driver firmware 설치](https://github.com/abperiasamy/rtl8812AU_8821AU_linux)

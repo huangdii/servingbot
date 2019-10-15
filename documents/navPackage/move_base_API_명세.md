@@ -27,11 +27,11 @@ bool __DWAPlanner__ (std::string name, base_local_planner::LocalPlannerUtil *pla
 
 
 base_local_planner::Trajectory 	__findBestPath__ (const geometry_msgs::PoseStamped &global_pose, const geometry_msgs::PoseStamped &global_vel, geometry_msgs::PoseStamped &drive_velocities)
- 	Given the current position and velocity of the robot, find the best trajectory to exectue. More...
+ 	
     최적의 자취를 반환
  
 bool 	__getCellCosts__ (int cx, int cy, float &path_cost, float &goal_cost, float &occ_cost, float &total_cost)
- 	Compute the components and total cost for a map grid cell. More...
+    
     cost 계산해주는거, path_cost 데이터에 자취에 대한 cost 계산, goal_cost 데이터는 goal 의 cost, occ_cost 는 occupancy grid 의 cost 계산 , total_cost 는 전체 cost 총합
  
 double 	__getSimPeriod__ ()
@@ -43,4 +43,6 @@ void 	__reconfigure__ (DWAPlannerConfig &cfg)
 bool 	__setPlan__ (const std::vector< geometry_msgs::PoseStamped > &orig_global_plan)
  
 void 	__updatePlanAndLocalCosts__ (const geometry_msgs::PoseStamped &global_pose, const std::vector< geometry_msgs::PoseStamped > &new_plan, const std::vector< geometry_msgs::Point > &footprint_spec)
- 	Update the cost functions before planning. More...
+ 	
+    Update the cost functions before planning. More...
+    const function 을 업데이트 하는거임.. 

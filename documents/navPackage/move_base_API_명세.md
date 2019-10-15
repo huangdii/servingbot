@@ -7,18 +7,20 @@ bool __checkTrajectory__ (const Eigen::Vector3f pos, const Eigen::Vector3f vel, 
 
 
     Check if a trajectory is legal for a position/velocity pair . 
+    자취가 유효한지 확인해주는 것
+    
 |   Parameters	 |   description	| data type|
 |:---------------|---------------:  |---------:|
 | pos            |the robot's pos   |Vector3f  |
 |vel             |the robot's vel   |Vector3f  |
 |vel_samples   	 |desired velocity  |Vector3f  |
 
->Returns True if the trajectory is valid, false otherwise => 자취가 유효한지 확인
 
  
 bool __DWAPlanner__ (std::string name, base_local_planner::LocalPlannerUtil *planner_util)
  	
-     Constructor for the planner. More...
+     생성자
+     
 |   Parameters	    |   description	    | data type     |
 |:---------------   |---------------:   |---------:     |
 |name               |planner's name     |string         |

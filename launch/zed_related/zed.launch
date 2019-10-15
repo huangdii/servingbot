@@ -25,7 +25,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <arg name="publish_urdf"         default="true" />
 
     <group ns="zed">
-        <include file="$(find zed_wrapper)/launch/zed_camera.launch">
+        <include file="$(find servebot)/launch/zed_camera.launch">
             <arg name="svo_file"            value="$(arg svo_file)" />
             <arg name="stream"              value="$(arg stream)" />
             <arg name="node_name"           value="$(arg node_name)" />

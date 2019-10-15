@@ -1,0 +1,8 @@
+<launch>
+    <arg name="svo_file"             default="" /> <!-- <arg name="svo_file" default="path/to/svo/file.svo"> -->
+    <arg name="stream"               default="" /> <!-- <arg name="stream" default="<ip_address>:<port>"> -->
+
+    <arg name="camera_model"         default="zed" />
+    <!-- Launch rivz display -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find zed_display_rviz)/rviz/$(arg camera_model).rviz" output="screen" />
+</launch>

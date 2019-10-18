@@ -37,7 +37,9 @@ su -c 'm-a prepare' 를 하라는 누군가의 말을 듣고 이걸따라해봄
 
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 \
                          --slave /usr/bin/g++ g++ /usr/bin/g++-5 
-
+sudo update-alternatives --config gcc
+gcc --version
+g++ --version
 를 한뒤에 다시 엔비디아 드라이버를 깜
 
 

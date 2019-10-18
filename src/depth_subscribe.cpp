@@ -7,7 +7,6 @@ void depthCallback(const sensor_msgs::Image::ConstPtr& msg) {
     // Get a pointer to the depth values casting the data
     // pointer to floating point
     float* depths = (float*)(&msg->data[0]);
-
     // Image coordinates of the center pixel
     int u = msg->width / 2;
     int v = msg->height / 2;

@@ -11,6 +11,12 @@
 10월 - ROS 를 활용한 실제 로봇 주행 및 서빙루틴 실행 및 테스트 
 
 
+## 참고한 오픈 소스
+
+https://github.com/minht57/ROS_Basic_SLAM
+
+
+## 시뮬레이션 코드 
 ```bash
 # house map 을 시작하기 
 roslaunch servebot house.launch
@@ -25,6 +31,13 @@ roslaunch servebot rrbot_world.launch
 roslaunch servebot rrbot_rviz.launch   
 ```
 ![image](pictures/gazebo_rviz.png)
+
+```bash
+제작한 맵 기반 localization & path planning & 움직임 제어 
+roslaunch servebot gazebo_change_world.launch 
+```
+>TODO - 위 커멘드에 대한 사진 첨부
+
 
 ## USB Camera 연결하여 Streaming 확인하기
 ```bash

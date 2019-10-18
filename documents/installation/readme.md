@@ -37,7 +37,9 @@ su -c 'm-a prepare' 를 하라는 누군가의 말을 듣고 이걸따라해봄
 
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 \
                          --slave /usr/bin/g++ g++ /usr/bin/g++-5 
-
+sudo update-alternatives --config gcc
+gcc --version
+g++ --version
 를 한뒤에 다시 엔비디아 드라이버를 깜
 
 
@@ -63,3 +65,15 @@ make
 
 sudo make install
 ```
+
+## jetson tx2 development guide...
+
+[kernel, driver package etc](https://docs.nvidia.com/jetson/archives/l4t-archived/l4t-282/index.html)
+
+### wifi 통신문제...
+처음에 IPTIME A1000mini를 샀으나 이게 막상 젯슨 보드 위에서는 작동하지않음, 드라이버도 없음 
+[결론, 걍 다른 장치 사라](https://askubuntu.com/questions/975464/mt7610u-unable-to-install-wifi-driver/975504#975504)
+
+[그래서 다른걸 사게되었습니다](http://www.compuzone.co.kr/product/product_detail.htm?ProductNo=397212&BigDivNo=12&MediumDivNo=1057&DivNo=2652)
+
+[driver firmware 설치](https://github.com/abperiasamy/rtl8812AU_8821AU_linux)

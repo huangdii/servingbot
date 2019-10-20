@@ -18,6 +18,13 @@
 https://github.com/minht57/ROS_Basic_SLAM
 
 
+## 제드 실행
+
+## RTABMAP 을 이용한 MAPPING
+
+## 2D Projection MAP 을 이용한 zed laser scan 기반 Navigation
+
+
 ## 시뮬레이션 코드 
 ```bash
 # house map 을 시작하기 

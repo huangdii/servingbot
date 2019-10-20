@@ -1,5 +1,7 @@
 # Serving robot
 
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+
 2019 9월 시작된 서빙로봇 프로젝트 
 
 남창호 황지윤 백경호 

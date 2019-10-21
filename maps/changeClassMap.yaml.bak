@@ -1,5 +1,5 @@
-image: changeClassMap_resize_v2.pgm
-resolution: 0.010000
+image: changeClassMap.pgm
+resolution: 0.050000
 origin: [-13.726466, -5.685825, 0.000000]
 negate: 0
 occupied_thresh: 0.65

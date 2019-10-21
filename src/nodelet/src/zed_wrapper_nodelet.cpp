@@ -253,7 +253,7 @@ namespace zed_wrapper {
 
         while (mConnStatus != sl::SUCCESS) {
             mConnStatus = mZed.open(mZedParams);
-            NODELET_INFO_STREAM("ZED connection \"제발 되라좀...\" -> " << sl::toString(mConnStatus));
+            NODELET_INFO_STREAM("ZED connection -> " << sl::toString(mConnStatus) << "Yeahhhhhhhhhhhhhhhhhhhh Babae ");
             std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 
             if (!mNhNs.ok()) {

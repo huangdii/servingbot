@@ -130,9 +130,9 @@ set(LINK_LIBRARIES
 add_executable(zed_depth_pos_sub src/depth_subscribe.cpp)
 target_link_libraries(zed_depth_pos_sub ${catkin_LIBRARIES})
 
-# add_library(ZEDWrapper ${TOOLS_SRC} ${NODELET_SRC})
-# target_link_libraries(ZEDWrapper ${LINK_LIBRARIES})
-# add_dependencies(ZEDWrapper ${${PROJECT_NAME}_EXPORTED_TARGETS} ${PROJECT_NAME}_gencfg)
+add_library(ZEDWrapper ${TOOLS_SRC} ${NODELET_SRC})
+target_link_libraries(ZEDWrapper ${LINK_LIBRARIES})
+add_dependencies(ZEDWrapper ${${PROJECT_NAME}_EXPORTED_TARGETS} ${PROJECT_NAME}_gencfg)
 
 add_executable(servebot_zed_node ${NODE_SRC})
 target_link_libraries(servebot_zed_node ZEDWrapper ${LINK_LIBRARIES})
@@ -145,12 +145,12 @@ add_custom_target(all_files_${PROJECT_NAME} SOURCES ${all_files})
 
 roslint_cpp()
 
-# install(TARGETS
-#   ZEDWrapper
-#   zed_wrapper_node
-#   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+install(TARGETS
+  ZEDWrapper
+  servebot_zed_node
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 install(FILES
   nodelet_plugins.xml

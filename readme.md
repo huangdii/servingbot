@@ -1,5 +1,7 @@
 # Serving robot
 
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+
 2019 9월 시작된 서빙로봇 프로젝트 
 
 남창호 황지윤 백경호 
@@ -14,6 +16,13 @@
 ## 참고한 오픈 소스
 
 https://github.com/minht57/ROS_Basic_SLAM
+
+
+## 제드 실행
+
+## RTABMAP 을 이용한 MAPPING
+
+## 2D Projection MAP 을 이용한 zed laser scan 기반 Navigation
 
 
 ## 시뮬레이션 코드 

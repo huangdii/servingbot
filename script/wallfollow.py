@@ -41,12 +41,14 @@ state_dict_ = {
 
 def clbk_laser(msg):
     global regions_
+
+    front = min(min(msg.ranges[0:66]), 12)
+    front = min(min(msg.ranges[733:797]),12)
+
     regions_ = {
-        'right':  min(min(msg.ranges[0:158]), 10),
-        'fright': min(min(msg.ranges[159:318]), 10),
-        'front':  min(min(msg.ranges[319:478]), 10),
-        'fleft':  min(min(msg.ranges[479:638]), 10),
-        'left':   min(min(msg.ranges[639:792]), 10),
+        'left': min(min(msg.ranges[68:166]),12),
+        'front':  front,
+        'right':   min(min(msg.ranges[633:731]),12),
     }
 
     take_action()
@@ -68,31 +70,30 @@ def take_action():
     
     state_description = ''
     
-    d = 0.9
-    
-    if regions['front'] > d and regions['fleft'] > d and regions['fright'] > d:
-        state_description = 'case 1 - nothing'
+    d = 0.4
+    if regions['front'] > d and regions['left'] > d and regions['right'] > d:
+        print('case 1 - nothing')
         change_state(0)
-    elif regions['front'] < d and regions['fleft'] > d and regions['fright'] > d:
-        state_description = 'case 2 - front'
+    elif regions['front'] < d and regions['left'] > d and regions['right'] > d:
+        print('case 2 - front')
         change_state(1)
-    elif regions['front'] > d and regions['fleft'] > d and regions['fright'] < d:
-        state_description = 'case 3 - fright'
-        change_state(2)
-    elif regions['front'] > d and regions['fleft'] < d and regions['fright'] > d:
-        state_description = 'case 4 - fleft'
+    elif regions['front'] > d and regions['left'] > d and regions['right'] < d:
+        print('case 3 - right')
+        change_state(2)  # wall follow
+    elif regions['front'] > d and regions['left'] < d and regions['right'] > d:
+        print('case 4 - left')
         change_state(0)
-    elif regions['front'] < d and regions['fleft'] > d and regions['fright'] < d:
-        state_description = 'case 5 - front and fright'
+    elif regions['front'] < d and regions['left'] > d and regions['right'] < d:
+        print('case 5 - front and right')
+        change_state(1)  # turn left
+    elif regions['front'] < d and regions['left'] < d and regions['right'] > d:
+        print('case 6 - front and left')
         change_state(1)
-    elif regions['front'] < d and regions['fleft'] < d and regions['fright'] > d:
-        state_description = 'case 6 - front and fleft'
+    elif regions['front'] < d and regions['left'] < d and regions['right'] < d:
+        print('case 7 - front and left and right')
         change_state(1)
-    elif regions['front'] < d and regions['fleft'] < d and regions['fright'] < d:
-        state_description = 'case 7 - front and fleft and fright'
-        change_state(1)
-    elif regions['front'] > d and regions['fleft'] < d and regions['fright'] < d:
-        state_description = 'case 8 - fleft and fright'
+    elif regions['front'] > d and regions['left'] < d and regions['right'] < d:
+        print('case 8 - left and right')
         change_state(0)
     else:
         state_description = 'unknown case'
@@ -100,7 +101,7 @@ def take_action():
 
 def find_wall():
     msg = Twist()
-    msg.linear.x = 0.2
+    msg.linear.x = 0.15
     msg.angular.z = -0.3
     return msg
 
@@ -113,7 +114,7 @@ def follow_the_wall():
     global regions_
     
     msg = Twist()
-    msg.linear.x = 0.5
+    msg.linear.x = 0.15
     return msg
 
 

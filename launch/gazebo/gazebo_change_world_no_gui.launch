@@ -9,14 +9,16 @@
   <arg name="z_pos" default="0.0"/>
 
   <include file="$(find servebot)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find servebot)/worlds/change_class_world.world"/>
+    <arg name="world_name" value="$(find servebot)/worlds/change_class_world_v1.world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="false"/>
     <arg name="headless" value="false"/>
     <arg name="debug" value="false"/>
   </include>
-  <include file="$(find servebot)/launch/nav_gazebo.launch"/>
+
+	<!-- navigation -->
+  <include file="$(find servebot)/launch/nav/nav_gazebo.launch"/>
   
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find servebot)/urdf/turtlebot3_$(arg model).urdf.xacro" />
 

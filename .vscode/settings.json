@@ -4,5 +4,6 @@
     "/opt/ros/melodic/lib/python2.7/dist-packages",
     "/home/bkh/Week15/tod/train_models/research",
     "/home/bkh/Week15/tod/train_models/research/slim"
-  ]
+  ],
+  "python.pythonPath": "/usr/bin/python"
 }

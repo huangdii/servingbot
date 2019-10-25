@@ -15,7 +15,7 @@
     <!-- Publish urdf zed -->
     <arg name="publish_urdf"          default="true" />
 <group ns="zed">
-    <node name="zed_wrapper_node" pkg="servebot" type="zed_wrapper_node" output="screen">
+    <node name="zed_wrapper_node" pkg="servebot" type="servebot_zed_node" output="screen">
 
         <!-- publish odometry frame -->
         <param name="publish_tf"            value="$(arg publish_tf)" />

@@ -130,7 +130,7 @@
     <arg name="move_forward_only" value="$(arg move_forward_only)"/>
     <remap from="cmd_vel" to="cmd_vel"/>
     <remap from="odom" to="/zed/odom"/>
-    <remap from="scan" to="/scan"/>
+    <remap from="/zed/scan" to="/scan"/>
   </include>
 
   <!-- rviz->

@@ -26,10 +26,10 @@
          $ roslaunch rtabmap_ros demo_turtlebot_rviz.launch
   -->
 
-  <arg name="database_path"     default="/home/namlonx/.ros/rtabmap.db"/>
+  <arg name="database_path"     default="$(env $RTAB_MAP_DB_SSD)/rtabmap.db"/>
   <arg name="rgbd_odometry"     default="false"/>
   <arg name="rtabmapviz"        default="false"/>
-  <arg name="localization"      default="false"/>
+  <arg name="localization"      default="true"/>
   <arg name="simulation"        default="false"/>
   <arg name="sw_registered"     default="false"/>
   <arg     if="$(arg localization)" name="args"  default=""/>
@@ -48,9 +48,9 @@
   -->
   
   <!-- Navigation stuff (move_base) -->
-  <include unless="$(arg simulation)" file="$(find zed_wrapper)/launch/zed_camera.launch">
+  <include unless="$(arg simulation)" file="$(find servebot)/launch/zed.launch">
   </include>
-  <include file="$(find turtlebot3_navigation)/launch/move_base.launch"/>
+  <include file="$(find servebot)/launch/move_base.launch"/>
   
   <!-- Mapping -->
   <group ns="rtabmap">
@@ -104,18 +104,7 @@
 	  <param name="Mem/InitWMWithAllNodes" type="string" value="$(arg localization)"/> 
     </node>
    
-    <!-- Odometry : ONLY for testing without the actual robot! /odom TF should not be already published. -->
-    <!--node if="$(arg rgbd_odometry)" pkg="rtabmap_ros" type="rgbd_odometry" name="rgbd_odometry" output="screen">
-      <param name="frame_id"                    type="string" value="base_footprint"/>
-      <param name="wait_for_transform_duration" type="double" value="$(arg wait_for_transform)"/>
-      <param name="Reg/Force3DoF"               type="string" value="true"/>
-      <param name="Vis/InlierDistance"          type="string" value="0.05"/>
-      
-      <remap from="rgb/image"       to="$(arg rgb_topic)"/>
-      <remap from="depth/image"     to="$(arg depth_topic)"/>
-      <remap from="rgb/camera_info" to="$(arg camera_info_topic)"/>
-    </node-->
-    
+
     <!-- visualization with rtabmapviz -->
     <node if="$(arg rtabmapviz)" pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz" args="-d $(find rtabmap_ros)/launch/config/rgbd_gui.ini" output="screen">
   	  <param name="subscribe_depth"             type="bool" value="true"/>

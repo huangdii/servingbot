@@ -15,7 +15,7 @@
   <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
    
   <!-- AMCL -->
-  <include file="$(find servebot)/launch/amcl/amcl_ChangeClass_zed.launch"/>
+  <include file="$(find servebot)/launch/amcl/amcl_corridor_zed.launch"/>
 
   <!-- move_base -->
   <include file="$(find servebot)/launch/move_base.launch">

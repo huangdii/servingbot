@@ -15,53 +15,16 @@
     <!-- Publish urdf zed -->
     <arg name="publish_urdf"          default="true" />
 <group ns="zed">
-    <node name="zed_wrapper_node" pkg="servebot" type="servebot_zed_node" output="screen">
+    <!-- Nodelet Manager -->
+      <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager_name)"  args="manager" output="screen" />
 
-        <!-- publish odometry frame -->
-        <param name="publish_tf"            value="$(arg publish_tf)" />
-        <!-- Configuration frame camera -->    
-        <param name="odometry_frame"        value="$(arg odometry_frame)" />
-        <param name="base_frame"            value="$(arg base_frame)" />
-        <param name="camera_frame"          value="$(arg camera_frame)" />
-        <param name="depth_frame"           value="$(arg depth_frame)" />
-    
-        <!-- SVO file path -->
-        <param name="svo_filepath"          value="$(arg svo_file)" />
-
-        <!-- ZED parameters -->
-        <param name="zed_id"                value="$(arg zed_id)" />
-
-        <param name="resolution"            value="2" />
-        <param name="quality"               value="2" />
-        <param name="sensing_mode"          value="0" />
-        <param name="frame_rate"            value="30" />
-        <param name="odometry_db"           value="" />
-        <param name="openni_depth_mode"     value="1" />
-        <param name="gpu_id"                value="$(arg gpu_id)" />
-        <param name="confidence"            value="80" />
-        <param name="depth_stabilization"   value="1" />
-
-        <!-- ROS topic names -->
-        <param name="rgb_topic"             value="rgb/image_rect_color" />
-        <param name="rgb_raw_topic"         value="rgb/image_raw_color" />
-        <param name="rgb_cam_info_topic"    value="rgb/camera_info" />
-
-        <param name="left_topic"            value="left/image_rect_color" />
-        <param name="left_raw_topic"        value="left/image_raw_color" />
-        <param name="left_cam_info_topic"   value="left/camera_info" />
-    
-        <param name="right_topic"           value="right/image_rect_color" />
-        <param name="right_raw_topic"       value="right/image_raw_color" />
-        <param name="right_cam_info_topic"  value="right/camera_info" />
-
-        <param name="depth_topic"           value="depth/depth_registered" />
-        <param name="depth_cam_info_topic"  value="depth/camera_info" />
-
-        <param name="point_cloud_topic"     value="point_cloud/cloud_registered" />
-
-        <param name="odometry_topic"        value="odom" />
-    </node>
-
+      <!-- ZED wrapper as nodelet -->
+      <include file="$(find servebot)/launch/zed_camera_nodelet.launch">
+          <arg name="svo_file"             value="$(arg svo_file)"/>
+          <arg name="nodelet_manager_name" value="$(arg nodelet_manager_name)" />
+          <arg name="camera_model"         value="$(arg camera_model)" />
+          <arg name="node_name"            value="$(arg zed_node_name)" />
+      </include>
     <!-- ROS URDF description of the ZED -->
     <group if="$(arg publish_urdf)">
         <param name="zed_description" textfile="$(find servebot)/urdf/zed.urdf" />

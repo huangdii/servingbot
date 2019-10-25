@@ -1,5 +1,5 @@
-image: restRoom_resize_v4.pgm
-resolution: 0.010000
+image: restRoom.pgm
+resolution: 0.050000
 origin: [-9.111300, -6.898723, 0.000000]
 negate: 0
 occupied_thresh: 0.65

@@ -9,7 +9,7 @@
   <arg name="z_pos" default="0.0"/>
 
   <include file="$(find servebot)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find servebot)/worlds/change_class_world.world"/>
+    <arg name="world_name" value="$(find servebot)/worlds/change_class_world_v1.world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>

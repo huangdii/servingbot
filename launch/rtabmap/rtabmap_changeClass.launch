@@ -39,7 +39,7 @@
   <arg name="ground_truth_frame_id"   default=""/>     <!-- e.g., "world" -->
   <arg name="ground_truth_base_frame_id" default=""/>  <!-- e.g., "tracker", a fake frame matching the frame "frame_id" (but on different TF tree) -->
   <arg name="namespace"               default="rtabmap"/>
-  <arg name="database_path"           default="$(find servebot)/db/changeClassZed.db"/>
+  <arg name="database_path"           default="/media/nvidia/JetsonSSD-150/servebot_map/db/rtabmap_change.db"/>
   <arg name="queue_size"              default="10"/>
   <arg name="wait_for_transform"      default="0.2"/>
   <arg name="args"                    default=""/>              <!-- delete_db_on_start, udebug -->
@@ -341,7 +341,7 @@
   
   <!-- Visualization RVIZ -->
   <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz" args="-d $(arg rviz_cfg)"/>
-  <node if="$(arg rviz)" pkg="nodelet" type="nodelet" name="points_xyzrgb" args="standalone rtabmap_ros/point_cloud_xyzrgb" output="$(arg output)">
+  <!--node if="$(arg rviz)" pkg="nodelet" type="nodelet" name="points_xyzrgb" args="standalone rtabmap_ros/point_cloud_xyzrgb" output="$(arg output)">
     <remap if="$(arg stereo)" from="left/image"        to="$(arg left_image_topic_relay)"/>
     <remap if="$(arg stereo)" from="right/image"       to="$(arg right_image_topic_relay)"/>
     <remap if="$(arg stereo)" from="left/camera_info"  to="$(arg left_camera_info_topic)"/>
@@ -355,6 +355,6 @@
     <param name="decimation"  type="double" value="4"/>
     <param name="voxel_size"  type="double" value="0.0"/>
     <param name="approx_sync" type="bool"   value="$(arg approx_sync)"/>
-  </node>
+  </node-->
 
 </launch>

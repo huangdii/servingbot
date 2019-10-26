@@ -26,7 +26,7 @@
          $ roslaunch rtabmap_ros demo_turtlebot_rviz.launch
   -->
 
-  <arg name="database_path"     default="$(env $RTAB_MAP_DB_SSD)/rtabmap.db"/>
+  <arg name="database_path"     default="$(env RTABMAP_DB_SSD)/rtabmap.db"/>
   <arg name="rgbd_odometry"     default="false"/>
   <arg name="rtabmapviz"        default="false"/>
   <arg name="localization"      default="true"/>
@@ -57,7 +57,8 @@
 
     <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="$(arg args)">
 	  <param name="database_path"       type="string" value="$(arg database_path)"/>
-	  <param name="frame_id"            type="string" value="base_footprint"/>
+	  <param name="frame_id"            type="string" value="camera_link"/>
+	  <!-- <param name="frame_id"            type="string" value="base_footprint"/> -->
 	  <param name="wait_for_transform_duration"  type="double"   value="$(arg wait_for_transform)"/>
 	  <param name="subscribe_depth"     type="bool"   value="true"/>
 	  <param name="subscribe_scan"      type="bool"   value="true"/>  
@@ -109,7 +110,8 @@
     <node if="$(arg rtabmapviz)" pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz" args="-d $(find rtabmap_ros)/launch/config/rgbd_gui.ini" output="screen">
   	  <param name="subscribe_depth"             type="bool" value="true"/>
       <param name="subscribe_scan"              type="bool" value="true"/>
-      <param name="frame_id"                    type="string" value="base_footprint"/>
+      <param name="frame_id"                    type="string" value="camera_link"/>
+      <!-- <param name="frame_id"                    type="string" value="base_footprint"/> -->
       <param name="wait_for_transform_duration" type="double" value="$(arg wait_for_transform)"/>
     
       <remap from="rgb/image"       to="$(arg rgb_topic)"/>

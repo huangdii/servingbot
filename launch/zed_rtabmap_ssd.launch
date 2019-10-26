@@ -27,7 +27,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
     <group ns="$(arg zed_namespace)">
         <!-- ZED Wrapper Node-->
-        <include file="$(find zed_wrapper)/launch/zed_camera.launch">
+        <include file="$(find servebot)/launch/zed_camera.launch">
             <arg name="svo_file"            value="$(arg svo_file)" />
             <arg name="node_name"           value="$(arg zed_node_name)" />
             <arg name="camera_model"        value="$(arg camera_model)" />

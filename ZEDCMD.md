@@ -1,4 +1,6 @@
-## zed 관련 
+[https://github.com/bkh751/servebot/wiki/%EB%AA%85%EB%A0%B9%EC%96%B4%EB%AA%A9%EB%A1%9D
+
+## zed 명령어 모음
 
 ### zed 노드 및 노드릿 실행
 제드카메라 nodelet 을 실행, local nodelet 이 실행되며 local 에서 rviz 를 켜서 zed 의 각종 토픽들을 볼 수 있다.

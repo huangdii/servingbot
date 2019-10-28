@@ -19,10 +19,13 @@
 ///////////////////////////////////////////////////////////////////////////
 
 #include "zed_wrapper_nodelet.hpp"
+#include "termcolor.hpp"
 
 #ifndef NDEBUG
 #include <ros/console.h>
 #endif
+
+
 
 #include <nav_msgs/Odometry.h>
 #include <nav_msgs/Path.h>
@@ -253,7 +256,21 @@ namespace zed_wrapper {
 
         while (mConnStatus != sl::SUCCESS) {
             mConnStatus = mZed.open(mZedParams);
-            NODELET_INFO_STREAM("ZED connection -> " << sl::toString(mConnStatus) << "Yeahhhhhhhhhhhhhhhhhhhh Babae ");
+
+            if(mConnStatus == sl::SUCCESS){
+                
+                NODELET_INFO_STREAM("ZED connection -> " << sl::toString(mConnStatus));
+                cout<<termcolor::green<<"YEAYEE"<<termcolor::reset<<endl;
+            }
+            else
+            {
+                
+                NODELET_INFO_STREAM("ZED connection -> "<< sl::toString(mConnStatus));
+                cout<<termcolor::red <<"OH NO..."<<termcolor::reset<<endl;
+                
+            }
+            
+
             std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 
             if (!mNhNs.ok()) {

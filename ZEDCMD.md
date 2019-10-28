@@ -1,4 +1,4 @@
-[https://github.com/bkh751/servebot/wiki/%EB%AA%85%EB%A0%B9%EC%96%B4%EB%AA%A9%EB%A1%9D
+[wiki로 돌아가기](https://github.com/bkh751/servebot/wiki/%EB%AA%85%EB%A0%B9%EC%96%B4%EB%AA%A9%EB%A1%9D)
 
 ## zed 명령어 모음
 

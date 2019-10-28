@@ -21,6 +21,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
     <arg name="svo_file"                        default="" /> 
     <!-- <arg name="svo_file" default="path/to/svo/file.svo"> -->
+    <arg name="database_path"                   default=""/>
 
     <arg name="zed_node_name"                   default="zed_node" />
     <arg name="camera_model"                    default="zed" /> <!-- 'zed' or 'zedm' -->
@@ -39,6 +40,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <!-- RTAB-map Node-->
     <include file="$(find servebot)/launch/rtabmap/rtabmap_localization.launch">
       <arg name="rtabmap_args"                  value="" />
+      <arg name="database_path"             default="$(arg database_path)"/>
       <arg name="rgb_topic"               	value="/$(arg zed_namespace)/$(arg zed_node_name)/rgb/image_rect_color" />
       <arg name="depth_topic"             	value="/$(arg zed_namespace)/$(arg zed_node_name)/depth/depth_registered" />
       <arg name="camera_info_topic"       	value="/$(arg zed_namespace)/$(arg zed_node_name)/rgb/camera_info" />

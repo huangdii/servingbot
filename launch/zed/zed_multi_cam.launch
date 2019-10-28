@@ -24,7 +24,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <arg name="publish_urdf"         default="true" />
 
     <group ns="zed_1">
-        <include file="$(find zed_wrapper)/launch/zed_camera.launch">
+        <include file="$(find servebot)/launch/zed/zed_camera.launch">
             <arg name="node_name"           value="$(arg node_name_1)" />
             <arg name="camera_model"        value="$(arg camera_model_1)" />
             <arg name="publish_urdf"        value="$(arg publish_urdf)" />
@@ -33,7 +33,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     </group>
 
     <group ns="zed_2">
-        <include file="$(find zed_wrapper)/launch/zed_camera.launch">
+        <include file="$(find servebot)/launch/zed/zed_camera.launch">
             <arg name="node_name"           value="$(arg node_name_2)" />
             <arg name="camera_model"        value="$(arg camera_model_2)" />
             <arg name="publish_urdf"        value="$(arg publish_urdf)" />

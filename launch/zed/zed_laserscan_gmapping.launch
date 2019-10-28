@@ -12,7 +12,7 @@
         <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager_name)"  args="manager" output="screen" />
 
         <!-- ZED wrapper as nodelet -->
-        <include file="$(find servebot)/launch/zed_camera_nodelet.launch">
+        <include file="$(find servebot)/launch/zed/zed_camera_nodelet.launch">
             <arg name="svo_file"             value="$(arg svo_file)"/>
             <arg name="nodelet_manager_name" value="$(arg nodelet_manager_name)" />
             <arg name="camera_model"         value="$(arg camera_model)" />

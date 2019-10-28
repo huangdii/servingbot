@@ -2,7 +2,7 @@
 
 <launch>
 
-  <include file="$(find hector_mapping)/launch/mapping_default.launch"/>
+  <include file="$(find hector_mapping)/launch/lidar/mapping_default.launch"/>
 
   <include file="$(find hector_geotiff)/launch/geotiff_mapper.launch">
     <arg name="trajectory_source_frame_name" value="scanmatcher_frame"/>

@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
     <!--arg name="svo_file"              default="/home/silent/a.svo" /-->
     <arg name="svo_file"              default="" />

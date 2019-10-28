@@ -36,7 +36,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     </group>
   
     <!-- RTAB-map Node-->
-    <include file="$(find servebot)/launch/rtabmap_ssd.launch">
+    <include file="$(find servebot)/launch/rtabmap/rtabmap_svo.launch">
       <arg name="rtabmap_args"                  value="--delete_db_on_start" />
       <arg name="rgb_topic"               	value="/$(arg zed_namespace)/$(arg zed_node_name)/rgb/image_rect_color" />
       <arg name="depth_topic"             	value="/$(arg zed_namespace)/$(arg zed_node_name)/depth/depth_registered" />

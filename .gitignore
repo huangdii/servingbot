@@ -1,4 +1,6 @@
 .vscode
+.vscode/
 *.pyc
 *.db
 *.db.bak
+.vscode/c_cpp_properties.json

@@ -15,8 +15,25 @@
 
 ## 참고한 오픈 소스
 
-https://github.com/minht57/ROS_Basic_SLAM
+- laser scan : https://github.com/minht57/ROS_Basic_SLAM7
+-  visual mapping & localization : 
+- 제드 예제 : https://github.com/stereolabs/zed-examples/
+- 제드 svo 따기 :  https://github.com/stereolabs/zed-examples/blob/master/svo%20recording/recording/CMakeLists.txt
+- 포인트 클라우드 발행을 위한 스택 : http://wiki.ros.org/pcl_ros/Tutorials/CloudToImage
 
+
+## 참고한 site
+
+- introlab: http://introlab.github.io/rtabmap/
+- zed api 문서 및 SDK 소개 : https://www.stereolabs.com/docs/api/
+- rtabmap 저자 논문 : https://introlab.3it.usherbrooke.ca/mediawiki-introlab/images/7/7a/Labbe18JFR_preprint.pdf
+- rtabmap 영상 : https://www.youtube.com/watch?v=71eRxTc1DaU&feature=youtu.be
+- rtabmap ros 소개 :https://github.com/introlab/rtabmap/wiki/Installation#ros
+- map cloud  저장하기 :  https://github.com/introlab/rtabmap_ros/issues/215
+
+## 주요 이슈
+
+- working thread is not synchronized with the camera
 
 ## 제드 실행
 
@@ -26,6 +43,15 @@ https://github.com/minht57/ROS_Basic_SLAM
 
 
 ## 시뮬레이션 코드 
+
+__환경변수 설정 하기__
+  
+    vim ~/.bashrc
+    
+    # 아래명령어를 쳐넣기
+    export GAZEBO_MODEL_PATH=$(rospack find servebot)/models:$GAZEBO_MODEL_PATH
+    export TURTLEBOT3_MODEL=waffle
+
 ```bash
 # house map 을 시작하기 
 roslaunch servebot house.launch

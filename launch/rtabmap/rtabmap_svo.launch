@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+
 <launch>
   <!-- Convenience launch file to launch odometry, rtabmap and rtabmapviz nodes at once -->
 
@@ -18,8 +18,8 @@
   <arg name="stereo"          default="false"/>
  
   <!-- Choose visualization -->
-  <arg name="rtabmapviz"              default="true" /> 
-  <arg name="rviz"                    default="false" />
+  <arg name="rtabmapviz"              default="true" /> <!-- default : true-->
+  <arg name="rviz"                    default="true" />
   
   <!-- Localization-only mode -->
   <arg name="localization"            default="false"/>
@@ -39,7 +39,7 @@
   <arg name="ground_truth_frame_id"   default=""/>     <!-- e.g., "world" -->
   <arg name="ground_truth_base_frame_id" default=""/>  <!-- e.g., "tracker", a fake frame matching the frame "frame_id" (but on different TF tree) -->
   <arg name="namespace"               default="rtabmap"/>
-  <arg name="database_path"           default="$(env RTABMAP_DB_SSD)/rtabmap.db"/>
+  <arg name="database_path"           default="~/.ros/rtabmap.db"/>
   <arg name="queue_size"              default="10"/>
   <arg name="wait_for_transform"      default="0.2"/>
   <arg name="args"                    default=""/>              <!-- delete_db_on_start, udebug -->

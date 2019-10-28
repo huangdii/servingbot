@@ -28,6 +28,7 @@
 
 - introlab: http://introlab.github.io/rtabmap/
 - zed api 문서 및 SDK 소개 : https://www.stereolabs.com/docs/api/
+- zed spatial mapping : https://www.stereolabs.com/docs/spatial-mapping/
 - rtabmap 저자 논문 : https://introlab.3it.usherbrooke.ca/mediawiki-introlab/images/7/7a/Labbe18JFR_preprint.pdf
 - rtabmap 영상 : https://www.youtube.com/watch?v=71eRxTc1DaU&feature=youtu.be
 - rtabmap ros 소개 :https://github.com/introlab/rtabmap/wiki/Installation#ros

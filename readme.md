@@ -44,12 +44,13 @@
 
 ## 시뮬레이션 코드 
 
-환경변수 설정 하기 
+__환경변수 설정 하기__
   
     vim ~/.bashrc
     
     # 아래명령어를 쳐넣기
     export GAZEBO_MODEL_PATH=$(rospack find servebot)/models:$GAZEBO_MODEL_PATH
+    export TURTLEBOT3_MODEL=waffle
 
 ```bash
 # house map 을 시작하기 

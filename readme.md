@@ -33,6 +33,8 @@
 - rtabmap ros 소개 :https://github.com/introlab/rtabmap/wiki/Installation#ros
 - map cloud  저장하기 :  https://github.com/introlab/rtabmap_ros/issues/215
 
+## 생성한 db file 
+- [지윤이의 dropbox]()
 
 ## 명령어 
 [명령어 wiki](https://github.com/bkh751/servebot/wiki/%EB%AA%85%EB%A0%B9%EC%96%B4%EB%AA%A9%EB%A1%9D)

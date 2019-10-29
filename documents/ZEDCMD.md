@@ -32,13 +32,13 @@ namlonx 로봇에서 ssd 에 저장하는 스크립트
 ### zed svo 를 가지고 mapping 하기 --> .db 파일을 만드는 작업!    
 
     # svo file 이 있다면 해당 svo file 을 이용해서 rtabmap 을 만드는 스크립트
-    roslaunch servebot zed_rtabmap_svo.launch svo_file:=<svo 파일 이름.svo>
+    roslaunch servebot zed_rtabmap_svo.launch svo_file:=/path/to/file.svo
     #이후 ~/.ros/ 안에 .db파일이 만들어짐, 만들어진 db 파일 이름을 꼭 바꿔주기 
     ※ makeRTABDB.sh <svo 파일 경로> 를 통해 쉽게할 수 있음.
 
     # zed spatial mapping 을 만들기 
     # params/zed/commons.yaml 에 있는 mapping 옵션을 true 로 바꾸고 아래 명령어를 실행하면 mapping 이 실행됨 ! 
-    roslaunch zed_wrapper zed.launch svo_file:=/path/to/file.svo 
+    roslaunch servebot zed.launch svo_file:=/path/to/file.svo 
 
 [mapping 옵션, service call 을 더 자세히 보려면 여기로!](https://www.stereolabs.com/docs/ros/zed_node/)
 

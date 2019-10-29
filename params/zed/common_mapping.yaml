@@ -67,7 +67,7 @@ tracking:
     fixed_z_value:              0.7                                 # Value to be used for Z coordinate if `two_d_mode` is true
 
 mapping:
-    mapping_enabled:            false                               # True to enable mapping and fused point cloud pubblication
+    mapping_enabled:            true                               # True to enable mapping and fused point cloud pubblication
     resolution:                 1                                   # `0`: HIGH, `1`: MEDIUM, `2`: LOW
-    fused_pointcloud_freq:      1.0                                 # frequency of the publishing of the fused colored point cloud
+    fused_pointcloud_freq:      3.0                                 # frequency of the publishing of the fused colored point cloud
 

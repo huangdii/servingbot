@@ -4,3 +4,4 @@
 *.db.bak
 .vscode/c_cpp_properties.json
 *.swp
+*.svo

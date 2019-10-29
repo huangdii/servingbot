@@ -26,6 +26,7 @@
 
 ## 참고한 site
 - zed ros : https://www.stereolabs.com/docs/ros/
+  - zed node :  https://www.stereolabs.com/docs/ros/zed_node/
 - introlab: http://introlab.github.io/rtabmap/
 - zed api 문서 및 SDK 소개 : https://www.stereolabs.com/docs/api/
 - zed spatial mapping : https://www.stereolabs.com/docs/spatial-mapping/

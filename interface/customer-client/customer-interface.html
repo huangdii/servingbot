@@ -1,56 +1,187 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <meta charset="UTF-8"/>
+  <title>고객 주문 인터페이스</title>
+  <head>
+    CUSTOMER
+  </head>
 
-<h2>1 번 테이블 손님인터페이스</h2>
+  <script src="customer_api.js"></script>
+  <script src="../ros_js_map_lib/easeljs.js"></script>
+  <script src="../ros_js_map_lib/eventemitter2.js"></script>
+  <script src="../ros_js_map_lib/roslib.js"></script>
+  <script src="../ros_js_map_lib/ros2d.js"></script>
+  <script src="../ros_js_map_lib/nav2d.js"></script>
+  <!-- <script src="connectivity.js"></script> -->
 
-<button type="button" onclick="requestContent(1)">주문하기</button>
-<button type="button" onclick="resetOrder()">리셋</button>
-<button type="button" onclick="orderReceived()">음식받음</button>
-<div id="statustext">
-</div>
+  <script>
+    var ros;
+    var amclListener;
+    var cmdVelPublisher;
+    function init() {
+      // Connect to ROS.
+      ros = new ROSLIB.Ros({
+        url: "ws://namlonxserver2:9090"
+      });
 
-<script>
-    function requestContent(foodNum) {
-        var xmlhttp = new XMLHttpRequest();
-        var url = "http://namlonxserver1:5000/api/order/food/" + foodNum;
-        var content = url
-        xmlhttp.onreadystatechange = function () {
-            console.log("order success")
-            document.getElementById("statustext").innerHTML = "<p>"+this.responseText+"</p>";
-        };
-        xmlhttp.open("GET", content, true);
-        xmlhttp.send();
+      // If there is an error on the backend, an 'error' emit will be emitted.
+      ros.on("error", function(error) {
+        document.getElementById("connecting").style.display = "none";
+        document.getElementById("connected").style.display = "none";
+        document.getElementById("closed").style.display = "none";
+        document.getElementById("error").style.display = "inline";
+        console.log(error);
+      });
+
+      // Find out exactly when we made a connection.
+      ros.on("connection", function() {
+        console.log("Connection made!");
+        document.getElementById("connecting").style.display = "none";
+        document.getElementById("error").style.display = "none";
+        document.getElementById("closed").style.display = "none";
+        document.getElementById("connected").style.display = "inline";
+      });
+
+      ros.on("close", function() {
+        console.log("Connection closed.");
+        document.getElementById("connecting").style.display = "none";
+        document.getElementById("connected").style.display = "none";
+        document.getElementById("closed").style.display = "inline";
+      });
+
+      // Create the main viewer.
+      var viewer = new ROS2D.Viewer({
+        divID: "map",
+        width: 600,
+        height: 400
+      });
+
+      var nav = NAV2D.OccupancyGridClientNav({
+        ros: ros,
+        rootObject: viewer.scene,
+        viewer: viewer,
+        serverName: "/move_base"
+      });
+      // Setup the map client.
+      var gridClient = new ROS2D.OccupancyGridClient({
+        ros: ros,
+        rootObject: viewer.scene
+      });
+      // Scale the canvas to fit to the map
+      gridClient.on("change", function() {
+        viewer.scaleToDimensions(
+          gridClient.currentGrid.width,
+          gridClient.currentGrid.height
+        );
+        viewer.shift(
+          gridClient.currentGrid.pose.position.x,
+          gridClient.currentGrid.pose.position.y
+        );
+      });
+      amclListener = new ROSLIB.Topic({
+        ros: ros,
+        name: "/amcl_pose",
+        messageType: "geometry_msgs/PoseWithCovarianceStamped"
+      });
+
+      cmdVelPublisher = new ROSLIB.Topic({
+        ros: ros,
+        name: "/cmd_vel",
+        messageType: "geometry_msgs/Twist"
+      });
+
+      // Then we add a callback to be called every time a message is published on this topic.
+      amclListener.subscribe(function(message) {
+        console.log(
+          `Received message on ${amclListener.name} \n 
+          x: ${message.pose.pose.position.x}
+          y: ${message.pose.pose.position.y}`
+        );
+
+        // If desired, we can unsubscribe from the topic as well.
+        // listener.unsubscribe();
+      });
     }
 
-    function orderReceived() {
-        var xmlhttp = new XMLHttpRequest();
-        var url = "http://namlonxserver1:5000/api/received/";
-        var content = url
-        xmlhttp.onreadystatechange = function () {
-            console.log("received")
-            document.getElementById("statustext").innerHTML = "<p>"+this.responseText+"</p>";
-        };
-        xmlhttp.open("GET", content, true);
-        xmlhttp.send();
+    function moveForward() {
+      var twist = new ROSLIB.Message({
+        linear: {
+          x: 1.0,
+          y: 0.0,
+          z: 0.0
+        },
+        angular: {
+          x: 0.0,
+          y: 0.0,
+          z: 0.0
+        }
+      });
+
+      cmdVelPublisher.publish(twist);
+    }
+    function stopRobot() {
+      var twist = new ROSLIB.Message({
+        linear: {
+          x: 0.0,
+          y: 0.0,
+          z: 0.0
+        },
+        angular: {
+          x: 0.0,
+          y: 0.0,
+          z: 0.0
+        }
+      });
+
+      cmdVelPublisher.publish(twist);
     }
 
-    function resetOrder(){
-        var xmlhttp = new XMLHttpRequest();
-        var url = "http://namlonxserver1:5000/api/reset/order/";
-        xmlhttp.onreadystatechange = function(){
-            console.log("reset success");
-            document.getElementById("statustext").innerHTML = "<p>"+this.responseText+"</p>"
-        };
-        xmlhttp.open("GET",url,true);
-        xmlhttp.send();
+    function moveBackward() {
+      var twist = new ROSLIB.Message({
+        linear: {
+          x: -1.0,
+          y: 0.0,
+          z: 0.0
+        },
+        angular: {
+          x: 0.0,
+          y: 0.0,
+          z: 0.0
+        }
+      });
+
+      cmdVelPublisher.publish(twist);
     }
+  </script>
 
-</script>
+  <body onload="init()">
+    <h2>손님인터페이스</h2>
 
+    <button type="button" onclick="requestContent(1)">주문하기</button>
+    <button type="button" onclick="resetOrder()">리셋</button>
+    <button type="button" onclick="orderReceived()">음식받음</button>
+    <button type="button" onclick="moveForward()">앞으로가기</button>
+    <button type="button" onclick="stopRobot()">로봇멈추기</button>
+    <button type="button" onclick="moveBackward()">로봇뒤로가기</button>
+    <div id="statustext"></div>
 
-<div>
-    [map]
-</div>
-</body>
+    <div id="connectionstatus">
+      <p id="connecting">
+        Connecting to rosbridge...
+      </p>
+      <p id="connected" style="color:#00D600; display:none">
+        Connected
+      </p>
+      <p id="error" style="color:#FF0000; display:none">
+        Error in the backend!
+      </p>
+      <p id="closed" style="display:none">
+        Connection closed.
+      </p>
+    </div>
+
+    <div id="map"></div>
+
+    <div id="current_position"></div>
+  </body>
 </html>
